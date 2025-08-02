@@ -1,0 +1,78 @@
+body{
+  background-image: url('./img/nen.jpg'); /*lấy hình nền từ file img và làm hình nền*/
+    background-size: cover; /* Ảnh phủ kín màn hình */
+    background-repeat: no-repeat; /* Không lặp lại */
+    background-position: center; /* Căn giữa */
+    background-attachment: fixed;/*giữ cố định khi cuộn*/
+}
+
+.menu{
+  display:flex;/*Dùng Flexbox để xếp các mục menu nằm ngang.*/
+  align-items: center;/*Căn giữa các mục menu theo chiều dọc.*/
+  gap:20px; /*cách nhau giữa các menu chọn đề các môn*/
+}
+
+.dropdown {
+  position:relative;/*làm mốc để menu con đinh vị*/
+  width: 140px;/*Chiều rộng cố định cho hộp menu.*/
+  font-family: sans-serif;/*kiểu chữ*/
+}
+
+.dropdown-title {
+  background-color: white; /*nên trắng cho menu chính*/
+  padding: 10px;/*Khoảng cách chữ so với viền 10px.*/
+  border: 1px solid;/*Viền 1px màu mặc định (đen).*/
+  cursor: pointer;  /*Khi đưa chuột vào hiện hình bàn tay để biết có thể bấm.*/
+}
+
+.dropdown-menu {
+  list-style: none; /* Xóa dấu chấm mặc định của ul/li */
+  margin: 0;/*Giúp menu sát mép trên/dưới/trái/phải của phần tử chứa*/
+  padding: 0;/*Danh sách menu sẽ không bị thụt vào so với viền ngoài.*/
+  position: absolute; /*nghĩa là phần tử được định vị tuyệt đối dựa trên phần tử cha có position: relative; gần nhất.*/
+  top: 100%;/*Menu con sẽ xuất hiện ngay dưới nút menu chính*/
+  left: 0;/*Đưa cạnh trái của menu con trùng với cạnh trái của phần tử mốc */
+  right: 0; /*Đưa cạnh phải của menu con trùng với cạnh phải của phần tử mốc */
+  display: none;/* Mặc định ẩn */
+  background-color: white;
+  border: 1px solid;
+  z-index: 10;   /* Đảm bảo menu con nổi lên trên nếu có phần tử khác phía dưới. */
+}
+.dropdown-menu li {
+  padding: 10px;/* Khoảng cách chữ với viền trong mỗi dòng menu.*/
+  border-top: 1px solid; /*Thêm đường kẻ ngăn cách các dòng.*/
+}
+
+/*
+.dropdown-menu li: chọn tất cả thẻ <li (mục menu) nằm trong phần tử có class là .dropdown-menu.
+
+:hover: là pseudo-class (giả lớp) của CSS, dùng để chọn phần tử khi chuột đang di chuyển vào (hover).*/
+.dropdown-menu li:hover {
+  background-color: #f0f0f0; /*Khi hover vào mỗi dòng menu thì nền sẽ chuyển màu xám nhạt.*/
+}
+
+/*
+hiện menu con
+Khi chuột hover vào .dropdown, menu con .dropdown-menu bên trong sẽ hiện ra (display: block)
+*/
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.subMit{
+    display: block;
+    margin: 0 auto;
+    /*căn giữa nút theo chiều ngang*/
+    font-family: 'Times New Roman', Times, serif;/*phong chữ*/
+    padding: 12px 28px;
+    border-radius: 10px;
+    /* Tạo nút bo tròn đẹp hơn.*/
+    background-color: #EEEEEE;/*màu nền của nút*/
+    position: fixed; /*nằm cố định*/
+    bottom: 20px;
+    left: 50%;
+    /*Đặt nút ở dưới cách đáy 20px, canh giữa màn hình theo chiều ngang.*/
+    transform: translateX(-50%);/*Dịch trái một nửa chiều rộng của nút để nút nằm chính giữa.*/
+    z-index: 999; /*Đảm bảo nút luôn nổi trên các phần tử khác.*/
+    cursor: pointer; /*Hiện hình bàn tay khi di chuột vào.*/
+}
