@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Đề Số 4 - Môn Hóa Học</title>
+    <link rel="stylesheet" href="Hóa.css" />
+  </head>
+  <body>
+    <h1>📝 Đề Thi Số 4 - Môn Hóa Học</h1>
+
+    <p>⏰ Thời gian còn lại: <span id="demNguoc">00:00</span></p>
+    <p>🧮 Số câu hỏi: <span id="soCauHoi"></span></p>
+
+    <div id="deThi"></div>
+    <!-- Vị trí hiển thị câu hỏi -->
+
+    <div id="ketQua" style="margin-top: 20px"></div>
+
+    <button class="subMit">Nộp bài</button>
+
+    <script src="de.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const soCau = parseInt(localStorage.getItem("soCauHoi") || "10");
+        document.getElementById("soCauHoi").textContent = soCau;
+
+        // Chỉ tiếp tục nếu có danh sách câu hỏi
+        if (Array.isArray(cauHoiList)) {
+          // Cắt danh sách theo số câu
+          const danhSachRutGon = cauHoiList.slice(0, soCau);
+
+          // Gọi lại hàm hiển thị đề với số câu đã chọn
+          hienThiDe(danhSachRutGon);
+
+          // Ghi đè lại sự kiện "Nộp bài"
+          document.querySelector(".subMit").onclick = function () {
+            let dung = 0;
+            danhSachRutGon.forEach((cau) => {
+              const luaChon = document.querySelector(
+                `input[name="${cau.id}"]:checked`
+              );
+              if (luaChon && luaChon.value === cau.answer) {
+                dung++;
+              }
+            });
+
+            document.getElementById(
+              "ketQua"
+            ).innerHTML = `✅ Bạn làm đúng <strong>${dung}/${danhSachRutGon.length}</strong> câu.`;
+          };
+        } else {
+          document.getElementById("deThi").innerHTML =
+            "<p>Lỗi: Không tìm thấy danh sách câu hỏi.</p>";
+        }
+      });
+    </script>
+  </body>
+</html>
