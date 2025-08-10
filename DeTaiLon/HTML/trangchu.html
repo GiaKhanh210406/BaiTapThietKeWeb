@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang chủ Trắc Nghiệm</title>
+    <link rel="stylesheet" href="../CSS/trangchu.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f2f2f2;
+        background-image: url("image/ảnh trang chủ.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+      }
+
+      header {
+        background-color: #ff99ff;
+        padding: 15px 20px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      nav.mon-hoc a {
+        margin: 0 10px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav.mon-hoc a:hover {
+        text-decoration: underline;
+      }
+
+      h3,
+      p {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .section {
+        max-width: 1100px;
+        margin: 40px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .subject-box {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        width: 240px;
+        padding: 15px;
+        text-align: center;
+        transition: transform 0.2s;
+      }
+
+      .subject-box:hover {
+        transform: translateY(-5px);
+      }
+
+      .subject-box h4 {
+        margin-bottom: 12px;
+        color: #f48fb1; /* Hồng pastel */
+        font-size: 18px;
+      }
+
+      .subject-image {
+        width: 100%;
+        height: 120px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        margin-bottom: 12px;
+      }
+
+      .subject-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .subject-info a {
+        color: #f48fb1; /* Hồng pastel */
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .subject-info a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">Trắc Nghiệm Online</div>
+      <nav class="mon-hoc">
+        <a href="Toán.html">Toán Học</a>
+        <a href="Lý.html">Vật Lý</a>
+        <a href="Hóa.html">Hóa Học</a>
+        <a href="Sinh.html">Sinh Học</a>
+        <a href="Anh.html">Tiếng Anh</a>
+        <a href="dangnhap.html">Đăng xuất</a>
+      </nav>
+    </header>
+
+    <h3>ÔN TẬP TRẮC NGHIỆM</h3>
+    <p>Chào mừng bạn đến với trang Trắc Nghiệm Online</p>
+
+    <section class="section">
+      <div class="subject-box">
+        <h4>Toán Học</h4>
+        <div
+          class="subject-image"
+          style="background-image: url('../image/Môn\ Toán.jpg')"
+        ></div>
+        <div class="subject-info">
+          <span>3 đề thi</span>
+          <a href="Toán.html">Xem các đề →</a>
+        </div>
+      </div>
+
+      <div class="subject-box">
+        <h4>Vật Lý</h4>
+        <div
+          class="subject-image"
+          style="background-image: url('../image/Vật\ Lý.jpg')"
+        ></div>
+        <div class="subject-info">
+          <span>3 đề thi</span>
+          <a href="Lý.html">Xem các đề →</a>
+        </div>
+      </div>
+
+      <div class="subject-box">
+        <h4>Hóa Học</h4>
+        <div
+          class="subject-image"
+          style="background-image: url('../image/Hóa\ Học.jpg')"
+        ></div>
+        <div class="subject-info">
+          <span>3 đề thi</span>
+          <a href="Hóa.html">Xem các đề →</a>
+        </div>
+      </div>
+
+      <div class="subject-box">
+        <h4>Sinh Học</h4>
+        <div
+          class="subject-image"
+          style="background-image: url('../image/Môn\ Sinh.jpg')"
+        ></div>
+        <div class="subject-info">
+          <span>3 đề thi</span>
+          <a href="Sinh.html">Xem các đề →</a>
+        </div>
+      </div>
+
+      <div class="subject-box">
+        <h4>Tiếng Anh</h4>
+        <div
+          class="subject-image"
+          style="background-image: url('../image/Tiếng\ Anh.jpg')"
+        ></div>
+        <div class="subject-info">
+          <span>3 đề thi</span>
+          <a href="Anh.html">Xem các đề →</a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
