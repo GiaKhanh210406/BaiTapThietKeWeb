@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Đề Số 3 - Môn Sinh</title>
+    <link rel="stylesheet" href="allStyle.css" />
+  </head>
+  <body>
+    <div id="giaoDienThi">
+      <h1>📝 Đề Thi Số 3 - Môn Sinh</h1>
+
+      <div class="menu">
+        <a href="trangchu.html">
+          <img src="home.png" alt="Home" width="40" />
+        </a>
+        <div class="dropdown">
+          <div class="dropdown-title">Toán</div>
+          <ul class="dropdown-menu">
+            <li><a href="de1Toan.html">Đề #01</a></li>
+            <li><a href="de2Toan.html">Đề #02</a></li>
+            <li><a href="de3Toan.html">Đề #03</a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown">
+          <div class="dropdown-title">Vật lý</div>
+          <ul class="dropdown-menu">
+            <li><a href="de1Ly.html">Đề #01</a></li>
+            <li><a href="de2Ly.html">Đề #02</a></li>
+            <li><a href="de3Ly.html">Đề #03</a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown">
+          <div class="dropdown-title">Hoá học</div>
+          <ul class="dropdown-menu">
+            <li><a href="de1Hoa.html">Đề #01</a></li>
+            <li><a href="de2Hoa.html">Đề #02</a></li>
+            <li><a href="de3Hoa.html">Đề #03</a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown">
+          <div class="dropdown-title">Sinh học</div>
+          <ul class="dropdown-menu">
+            <li><a href="de1Sinh.html">Đề #01</a></li>
+            <li><a href="de2Sinh.html">Đề #02</a></li>
+            <li><a href="de3Sinh.html">Đề #03</a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown">
+          <div class="dropdown-title">Tiếng anh</div>
+          <ul class="dropdown-menu">
+            <li><a href="de1Anh.html">Đề #01</a></li>
+            <li><a href="de2Anh.html">Đề #02</a></li>
+            <li><a href="de3Anh.html">Đề #03</a></li>
+          </ul>
+        </div>
+      </div>
+      <p>⏰ Thời gian còn lại: <span id="demNguoc">00:00</span></p>
+      <p>🧮 Số câu hỏi: <span id="soCauHoi"></span></p>
+
+      <div id="deThi"></div>
+      <!-- Vị trí hiển thị câu hỏi -->
+
+      <div id="ketQua" style="margin-top: 20px"></div>
+
+      <button class="subMit">Nộp bài</button>
+    </div>
+
+    <script>
+      // Danh sách câu hỏi
+      const cauHoiList = [
+        {
+          id: "q1",
+          question:
+            "Trong quá trình nhân đôi ADN, enzim nào có vai trò tháo xoắn phân tử ADN?",
+          options: {
+            A: "ADN pôlimeraza",
+            B: "Ligaza",
+            C: "Helicaza",
+            D: "ARN pôlimeraza",
+          },
+          answer: "C",
+        },
+        {
+          id: "q2",
+          question:
+            "Loại liên kết hóa học giữ hai mạch đơn của ADN với nhau là:",
+          options: {
+            A: "Liên kết ion",
+            B: "Liên kết peptit",
+            C: "Liên kết cộng hóa trị",
+            D: "Liên kết hiđrô",
+          },
+          answer: "D",
+        },
+        {
+          id: "q3",
+          question: "Đơn phân cấu tạo nên phân tử ADN là:",
+          options: {
+            A: "Axít amin",
+            B: "Nucleotit",
+            C: "Đường ribôzơ",
+            D: "Bazơ nitric",
+          },
+          answer: "B",
+        },
+        {
+          id: "q4",
+          question: "Quá trình tổng hợp ARN dựa trên khuôn mẫu nào?",
+          options: {
+            A: "ARN",
+            B: "ADN",
+            C: "Prôtêin",
+            D: "Enzim",
+          },
+          answer: "B",
+        },
+        {
+          id: "q5",
+          question: "Ở sinh vật nhân thực, quá trình phiên mã xảy ra ở đâu?",
+          options: {
+            A: "Lưới nội chất",
+            B: "Nhân tế bào",
+            C: "Ribôxôm",
+            D: "Bào tương",
+          },
+          answer: "B",
+        },
+        {
+          id: "q6",
+          question: "Một codon mã hóa cho bao nhiêu axit amin?",
+          options: {
+            A: "1",
+            B: "2",
+            C: "3",
+            D: "4",
+          },
+          answer: "A",
+        },
+        {
+          id: "q7",
+          question:
+            "Gen có chiều dài 5100 Å và chứa 3900 liên kết hiđrô. Gen có bao nhiêu cặp A – T?",
+          options: {
+            A: "600",
+            B: "900",
+            C: "1200",
+            D: "1500",
+          },
+          answer: "C",
+        },
+        {
+          id: "q8",
+          question: "Ở cấp độ phân tử, đột biến gen là sự thay đổi:",
+          options: {
+            A: "Số lượng gen",
+            B: "Trình tự nucleotit",
+            C: "Cấu trúc NST",
+            D: "Số lượng NST",
+          },
+          answer: "B",
+        },
+        {
+          id: "q9",
+          question: "Trong quá trình dịch mã, anticodon nằm trên phân tử nào?",
+          options: {
+            A: "mARN",
+            B: "tARN",
+            C: "rARN",
+            D: "ADN",
+          },
+          answer: "B",
+        },
+        {
+          id: "q10",
+          question:
+            "Hiện tượng di truyền liên kết gen lần đầu tiên được phát hiện ở loài:",
+          options: {
+            A: "Ngô",
+            B: "Ruồi giấm",
+            C: "Đậu Hà Lan",
+            D: "Cà chua",
+          },
+          answer: "B",
+        },
+        {
+          id: "q11",
+          question: "Mỗi codon gồm bao nhiêu nucleotit?",
+          options: {
+            A: "1",
+            B: "2",
+            C: "3",
+            D: "4",
+          },
+          answer: "C",
+        },
+        {
+          id: "q12",
+          question: "Nguyên tắc bổ sung trong nhân đôi ADN là:",
+          options: {
+            A: "A – T; G – X",
+            B: "A – G; T – X",
+            C: "A – U; G – C",
+            D: "A – C; T – G",
+          },
+          answer: "A",
+        },
+        {
+          id: "q13",
+          question: "Sự phân ly độc lập xảy ra khi các cặp gen:",
+          options: {
+            A: "Nằm trên cùng một NST",
+            B: "Nằm trên các NST khác nhau",
+            C: "Nằm liền kề nhau",
+            D: "Liên kết hoàn toàn",
+          },
+          answer: "B",
+        },
+        {
+          id: "q14",
+          question: "Tính trạng trội là tính trạng biểu hiện:",
+          options: {
+            A: "Chỉ khi có 2 alen trội",
+            B: "Ngay cả khi chỉ có 1 alen trội",
+            C: "Chỉ khi có alen lặn",
+            D: "Trong môi trường đặc biệt",
+          },
+          answer: "B",
+        },
+        {
+          id: "q15",
+          question:
+            "Cơ thể có kiểu gen AaBb khi giảm phân tạo tối đa bao nhiêu loại giao tử?",
+          options: {
+            A: "2",
+            B: "3",
+            C: "4",
+            D: "1",
+          },
+          answer: "C",
+        },
+        {
+          id: "q16",
+          question: "Kết quả của phân bào nguyên phân là:",
+          options: {
+            A: "Tạo ra 2 tế bào con giống nhau",
+            B: "Tạo ra 4 tế bào con khác nhau",
+            C: "Giảm một nửa số NST",
+            D: "Tăng gấp đôi số NST",
+          },
+          answer: "A",
+        },
+        {
+          id: "q17",
+          question: "Tế bào sinh dục sơ khai là tế bào:",
+          options: {
+            A: "Haploid (n)",
+            B: "Diploid (2n)",
+            C: "Triploid (3n)",
+            D: "Không mang NST",
+          },
+          answer: "B",
+        },
+        {
+          id: "q18",
+          question: "Thể ba là dạng đột biến:",
+          options: {
+            A: "Mất 1 NST",
+            B: "Thêm 1 NST",
+            C: "Thêm 1 đoạn NST",
+            D: "Gấp đôi toàn bộ bộ NST",
+          },
+          answer: "B",
+        },
+        {
+          id: "q19",
+          question: "Thành phần chính cấu tạo nên màng sinh chất là:",
+          options: {
+            A: "Tinh bột và protein",
+            B: "Protein và photpholipit",
+            C: "Cholesterol và ADN",
+            D: "ARN và protein",
+          },
+          answer: "B",
+        },
+        {
+          id: "q20",
+          question: "Cơ chế di truyền qua ADN được gọi là:",
+          options: {
+            A: "Di truyền ngoài nhân",
+            B: "Di truyền theo dòng mẹ",
+            C: "Di truyền phân tử",
+            D: "Di truyền Mendel",
+          },
+          answer: "C",
+        },
+        {
+          id: "q21",
+          question: "Bộ ba kết thúc quá trình dịch mã là:",
+          options: {
+            A: "AUG",
+            B: "UGA, UAG, UAA",
+            C: "GUA",
+            D: "UAC",
+          },
+          answer: "B",
+        },
+        {
+          id: "q22",
+          question: "Cặp NST giới tính ở người nữ là:",
+          options: {
+            A: "XY",
+            B: "YY",
+            C: "XX",
+            D: "XO",
+          },
+          answer: "C",
+        },
+        {
+          id: "q23",
+          question: "Thành phần nào sau đây không có trong ADN?",
+          options: {
+            A: "Adenin",
+            B: "Uraxin",
+            C: "Timin",
+            D: "Guanin",
+          },
+          answer: "B",
+        },
+        {
+          id: "q24",
+          question: "Enzim nối các đoạn Okazaki là:",
+          options: {
+            A: "Helicaza",
+            B: "Ligaza",
+            C: "Topoisomeraza",
+            D: "ARN pôlimeraza",
+          },
+          answer: "B",
+        },
+        {
+          id: "q25",
+          question: "Thành phần chính của NST là:",
+          options: {
+            A: "ARN và protein",
+            B: "Lipit và ADN",
+            C: "ADN và protein histon",
+            D: "ADN và ARN",
+          },
+          answer: "C",
+        },
+        {
+          id: "q26",
+          question: "Đơn vị sao mã trong phiên mã là:",
+          options: {
+            A: "Gen",
+            B: "Tế bào",
+            C: "NST",
+            D: "Codon",
+          },
+          answer: "A",
+        },
+        {
+          id: "q27",
+          question: "Người mắc hội chứng Đao có số lượng NST là:",
+          options: {
+            A: "44",
+            B: "46",
+            C: "47",
+            D: "45",
+          },
+          answer: "C",
+        },
+        {
+          id: "q28",
+          question: "Ở người, gen lặn gây bệnh mù màu nằm trên:",
+          options: {
+            A: "NST thường",
+            B: "NST Y",
+            C: "NST X",
+            D: "Tế bào chất",
+          },
+          answer: "C",
+        },
+        {
+          id: "q29",
+          question: "Tế bào có bộ NST đơn bội là:",
+          options: {
+            A: "Tế bào thần kinh",
+            B: "Tế bào sinh dưỡng",
+            C: "Giao tử",
+            D: "Tế bào cơ",
+          },
+          answer: "C",
+        },
+        {
+          id: "q30",
+          question: "Tính trạng không bị ảnh hưởng bởi môi trường là:",
+          options: {
+            A: "Chiều cao cây trồng",
+            B: "Màu sắc hoa",
+            C: "Năng suất cây trồng",
+            D: "Khối lượng cơ thể",
+          },
+          answer: "B",
+        },
+        {
+          id: "q31",
+          question: "Đặc điểm nào không đúng với sinh sản vô tính?",
+          options: {
+            A: "Không có tái tổ hợp di truyền",
+            B: "Tạo ra thế hệ con giống hệt mẹ",
+            C: "Tạo ra biến dị tổ hợp",
+            D: "Không có sự thụ tinh",
+          },
+          answer: "C",
+        },
+        {
+          id: "q32",
+          question: "Tế bào nào sau đây có thể thực hiện nguyên phân?",
+          options: {
+            A: "Tinh trùng",
+            B: "Tế bào xôma",
+            C: "Trứng",
+            D: "Giao tử",
+          },
+          answer: "B",
+        },
+        {
+          id: "q33",
+          question: "Loại đột biến nào không làm thay đổi chiều dài ADN?",
+          options: {
+            A: "Mất một cặp nu",
+            B: "Thêm một cặp nu",
+            C: "Thay thế một cặp nu",
+            D: "Mất đoạn ADN",
+          },
+          answer: "C",
+        },
+        {
+          id: "q34",
+          question:
+            "Một gen có 1200 nucleotit loại G, biết A = T, G = X, số nucleotit của gen là:",
+          options: {
+            A: "2400",
+            B: "3600",
+            C: "4800",
+            D: "1200",
+          },
+          answer: "B",
+        },
+        {
+          id: "q35",
+          question: "Cơ sở vật chất của hiện tượng di truyền là:",
+          options: {
+            A: "Tế bào chất",
+            B: "Prôtêin",
+            C: "ARN",
+            D: "ADN",
+          },
+          answer: "D",
+        },
+        {
+          id: "q36",
+          question:
+            "Sự tự nhân đôi của ADN xảy ra trong kỳ nào của chu kỳ tế bào?",
+          options: {
+            A: "Kỳ trung gian",
+            B: "Kỳ đầu",
+            C: "Kỳ sau",
+            D: "Kỳ cuối",
+          },
+          answer: "A",
+        },
+        {
+          id: "q37",
+          question: "Ở sinh vật nhân sơ, ribôxôm có kích thước:",
+          options: {
+            A: "70S",
+            B: "80S",
+            C: "60S",
+            D: "90S",
+          },
+          answer: "A",
+        },
+        {
+          id: "q38",
+          question: "Một phân tử ADN kép có 300 vòng xoắn, số nuclêôtit là:",
+          options: {
+            A: "1500",
+            B: "6000",
+            C: "3000",
+            D: "4500",
+          },
+          answer: "B",
+        },
+        {
+          id: "q39",
+          question: "Cấu trúc mang thông tin di truyền của sinh vật là:",
+          options: {
+            A: "Tế bào chất",
+            B: "ADN",
+            C: "NST",
+            D: "ARN",
+          },
+          answer: "C",
+        },
+        {
+          id: "q40",
+          question:
+            "Loại ARN tham gia trực tiếp vận chuyển axit amin trong dịch mã là:",
+          options: {
+            A: "rARN",
+            B: "mARN",
+            C: "tARN",
+            D: "snARN",
+          },
+          answer: "C",
+        },
+      ];
+
+      // Hiển thị đề thi
+      function hienThiDe(cauHoiList) {
+        const deThiDiv = document.getElementById("deThi"); // lấy thẻ có id="deThi"
+        deThiDiv.innerHTML = ""; // Giả sử ban đầu hiển thị đề có 20 câu → sau đó bạn bấm nút "Làm lại", hàm hienThiDe() được gọi lại → nội dung đề cũ vẫn còn, và đề mới sẽ bị thêm vào bên dưới → kết quả là đề bị nhân đôi.
+        //duyệt qua từng câu hỏi và đánh số thứ tự từng câu
+        cauHoiList.forEach((cauHoi, thuTuCau) => {
+          //tạo str để hiển thị câu hỏi
+          let str = `<p><strong>Câu ${thuTuCau + 1}:</strong> ${
+            cauHoi.question
+          }</p>`;
+          //duyệt qua từng đáp án A B C D của câu hỏi
+          for (let luaChon in cauHoi.options) {
+            //str += là để nối thêm nội dụng của từng đáp án ABCD,nối tiếp của  let str = `<p<strongCâu ${thuTuCau + 1}:</strong ${cauHoi.question}</p`;
+            //nếu ko có + thì đáp án sẽ bị ghi đè chuỗi,sẽ chỉ hiện đáp án D
+            //name="${cauHoi.id}" để nhóm có cùng id lại , ví dụ: nhóm các id: q1 là của câu hỏi số 1
+            //vavalue="${luaChon}" là đáp án mà người dùng chọn
+            //${luaChon}. ${cauHoi.options[luaChon]} hiển thị nội dung của đáp án, nếu ko có chỉ hiện dấu chấm tròn để chọn
+            str += `
+        <label>
+          <input type="radio" name="${cauHoi.id}" value="${luaChon}">
+           ${luaChon}. ${cauHoi.options[luaChon]}
+        </label><br>`;
+          }
+          //thêm tất cả các câu hỏi vào div (vì div id="deThi"></div ở bên trang html),phân cách nhau bằng br
+          deThiDiv.innerHTML += str + "<br>";
+        });
+      }
+
+      // Chấm điểm
+      function chamDiem() {
+        //tạo số câu đúng là 0
+        let soCauDung = 0;
+        //duyệt qua câu hỏi
+        cauHoiList.forEach((cauHoi) => {
+          /*input[name="${cauHoi.id}"]: tìm tất cả các input radio có thuộc tính name là q1, q2, v.v.
+
+    Giải thích tại sao lại name:Trong cauHoiList, "q1" là ID của câu hỏi trong dữ liệu JavaScript,
+    nhưng khi hiển thị lên HTML, nó được dùng làm name cho nhóm radio button.
+
+    :checked: chọn radio button mà người dùng đã chọn , nếu chưa chọn gì là null */
+          let luaChon = document.querySelector(
+            `input[name="${cauHoi.id}"]:checked`
+          );
+          /* Kiểm tra xem:
+
+Người dùng có chọn câu trả lời không (luaChon khác null)
+
+Và lựa chọn đó có đúng không (luaChon.value === cauHoi.answer)
+
+→ Nếu đúng thì tăng biến soCauDung thêm 1. */
+          if (luaChon && luaChon.value === cauHoi.answer) {
+            soCauDung++;
+          }
+        });
+        //hiển thị kết quả ra màn hình
+        document.getElementById(
+          "ketQua"
+        ).innerHTML = `✅ Bạn làm đúng <strong>${soCauDung}/${soCau}</strong> câu.`;
+
+        alert(`✅Bạn làm đúng ${soCauDung}/${soCau} câu.`);
+      }
+
+      // Khóa lựa chọn
+      function khoaLuaChon() {
+        //lấy tất cả lựa chọn có type bằng radio
+        let tatCa = document.querySelectorAll('input[type="radio"]');
+        //duyệt qua từng cái biến tatCa , với mỗi phân tử gán input.disabled = true,nghĩa là vô hiệu hóa nút chọn và ko thể nhấn chọn nữa
+        tatCa.forEach((input) => (input.disabled = true));
+      }
+
+      // Bắt sự kiện khi người đùng chọn nút "Nộp bài"
+      document.querySelector(".subMit").addEventListener("click", function () {
+        chamDiem(); //chấm điểm
+        clearInterval(demNguoc); //dừng đếm ngược
+        khoaLuaChon(); //khóa đáp án
+      });
+
+      // Đồng hồ đếm ngược
+      const soCau = parseInt(localStorage.getItem("soCauHoi") || "10");
+      let thoiGian = soCau * 3 * 60; // mỗi câu 3 phút -> tổng thời gian làm bài
+      //khai báo const dongHo ko thay đổi địa chỉ, document.getElementById("demNguoc"):tìm và lấy thẻ có id là demNguoc
+      const dongHo = document.getElementById("demNguoc");
+      //let demNguoc = setInterval(() => { ... }, 1000);
+      //setInterval(...): Lệnh này tạo ra một hàm chạy lặp lại mỗi 1000 mili giây (1 giây).
+      let demNguoc = setInterval(() => {
+        let phut = Math.floor(thoiGian / 60); // tính phút
+        let giay = thoiGian % 60; // tính giây
+
+        /*Dòng này dùng để hiển thị đồng hồ lên giao diện HTML.
+${phut.toString().padStart(2, "0")}:
+Chuyển số phút thành chuỗi,giống với số giây
+Nếu chỉ có 1 chữ số (ví dụ 9), thì thêm số 0 đằng trước → thành 09.*/
+        dongHo.textContent = `${phut.toString().padStart(2, "0")}:${giay
+          .toString()
+          .padStart(2, "0")}`;
+
+        thoiGian--; // Giảm thời gian xuống
+
+        if (thoiGian < 0) {
+          // Khi hết giờ, tự động chấm và dừng làm bài
+          //clearInterval(...) là hàm trong JavaScript dùng để dừng một bộ đếm thời gian đã được tạo bằng
+          clearInterval(demNguoc);
+          chamDiem(); //chấm điểm
+          khoaLuaChon(); //khóa lựa chọn
+        }
+      }, 1000);
+
+      // Hiển thị số câu hỏi trong ngân hàng đề
+      //getElementById("soCauHoi") sẽ tìm đến phần tử HTML có id = "soCauHoi"
+      //.textContent: Dùng để gán nội dung chữ cho phần tử đó.
+      //cauHoiList.length: Lấy số phần tử (số câu hỏi) trong mảng cauHoiList.
+      //.length sẽ trả về số lượng phần tử trong mảng.
+      document.getElementById("soCauHoi").textContent = cauHoiList.length;
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const soCau = parseInt(localStorage.getItem("soCauHoi") || "10");
+        document.getElementById("soCauHoi").textContent = soCau;
+
+        // Chỉ tiếp tục nếu có danh sách câu hỏi
+        if (Array.isArray(cauHoiList)) {
+          // Cắt danh sách theo số câu
+          const danhSachRutGon = cauHoiList.slice(0, soCau);
+
+          // Gọi lại hàm hiển thị đề với số câu đã chọn
+          hienThiDe(danhSachRutGon);
+
+          // Ghi đè lại sự kiện "Nộp bài"
+          document.querySelector(".subMit").onclick = function () {
+            let dung = 0;
+            danhSachRutGon.forEach((cau) => {
+              const luaChon = document.querySelector(
+                `input[name="${cau.id}"]:checked`
+              );
+              if (luaChon && luaChon.value === cau.answer) {
+                dung++;
+              }
+            });
+          };
+        } else {
+          document.getElementById("deThi").innerHTML =
+            "<p>Lỗi: Không tìm thấy danh sách câu hỏi.</p>";
+        }
+      });
+
+      //PHẦN THÊM CÂU HỎI
+      let cauNguoiDungThem = []; //Mảng rỗng để lưu câu hỏi người dùng thêm
+      let goc = localStorage.getItem("cauHoiThem_SinhDe3"); //lấy dữ liệu từ localStorage với key là "cauHoiThem"(chưa có dữ liệu thì raw sẽ null)
+      if (goc) {
+        let dsChuoi = goc.split("#"); //cắt chuỗi ra thành mảng,"#" ngăn cách giữa các câu hỏi
+        dsChuoi.forEach(function (
+          chuoi //duyệt qua từng phần tử trong mảng "chuoi"
+        ) {
+          if (chuoi.trim() === "")
+            //xoá khoảng trắng đầu cuối của mảng, nếu mảng ko có gì sẽ bỏ qua
+            return;
+
+          let parts = chuoi.split("|"); //chia ra mỗi phần ngăn cách nhau bằng dấu "|"
+
+          if (parts.length === 6) {
+            //nếu đủ 6 phần
+            //Thêm câu hỏi vào mảng "cauNguoiDungThem"
+            cauNguoiDungThem.push({
+              id: "q" + (cauHoiList.length + 1),
+              question: parts[0],
+              options: {
+                A: parts[1],
+                B: parts[2],
+                C: parts[3],
+                D: parts[4],
+              },
+              answer: parts[5],
+            });
+          }
+        });
+      }
+      //Thêm câu hỏi vào ngân hàng
+      //Duyệt qua từng phần tử trong cauNguoiDungThem
+      //"c" là câu hỏi người dùng đã thêm
+      cauNguoiDungThem.forEach(function (c) {
+        cauHoiList.push(c);
+      });
+
+      //GIAO DIỆN THÊM CÂU HỎI
+      const giaoDienThem = document.createElement("div"); //tạo một thẻ div
+      //giao diện html của thêm câu hỏi
+      giaoDienThem.innerHTML = `
+      <div class="khungChinh">
+  
+  
+  <button id="themCauHoi">Thêm câu hỏi</button>
+  
+  <div id="giaoDienThemCauHoi" class="hidden">
+    <hr>
+    <h2>Thêm Câu Hỏi Mới</h2>
+    
+    <label class="nhanInput">📝Câu hỏi:</label>
+    <input type="text" id="cauHoiMoi" placeholder="Nhập câu hỏi của bạn...">
+    
+    <div class="khungDapAn">
+      <div>
+        <label class="nhanInput">🅰 Đáp án A:</label>
+        <input type="text" id="optA" placeholder="Nhập đáp án A...">
+      </div>
+      <div>
+        <label class="nhanInput">🅱 Đáp án B:</label>
+        <input type="text" id="optB" placeholder="Nhập đáp án B...">
+      </div>
+      <div>
+        <label class="nhanInput">🅲 Đáp án C:</label>
+        <input type="text" id="optC" placeholder="Nhập đáp án C...">
+      </div>
+      <div>
+        <label class="nhanInput">🅳 Đáp án D:</label>
+        <input type="text" id="optD" placeholder="Nhập đáp án D...">
+      </div>
+    </div>
+    
+    <label class="nhanInput">Đáp án đúng:</label>
+    <select id="cauDung">
+      <option value="correct">--Chọn đáp án đúng--</option>
+      <option value="A">🅰 Đáp án A</option>
+      <option value="B">🅱Đáp án B</option>
+      <option value="C">🅲 Đáp án C</option>
+      <option value="D">🅳 Đáp án D</option>
+    </select>
+    
+    <div class="khungNutBam">
+      <button id="nutThem">Thêm</button>
+      <button id="nutQuayLai">Quay lại</button>
+      <button id="nutXoa">🗑 Xóa câu đã thêm</button>
+    </div>
+    
+    <p id="thongBao"></p>
+  </div>
+</div>
+
+      `;
+      document.body.appendChild(giaoDienThem); //thêm "giaoDienThem" vào body của html
+
+      // nút thêm câu hỏi có id="themCauHoi"
+      //khi người dùng chọn "Thêm câu hỏi" thì sẽ qua giao diện thêm câu hỏi
+      document
+        .getElementById("themCauHoi")
+        .addEventListener("click", function () {
+          // Ẩn phần thi
+          document.getElementById("giaoDienThi").classList.add("hidden");
+
+          // Hiện phần thêm câu hỏi
+          document
+            .getElementById("giaoDienThemCauHoi")
+            .classList.remove("hidden");
+        });
+
+      //nút quay lại giao diện thi
+      document
+        .getElementById("nutQuayLai")
+        .addEventListener("click", function () {
+          document.getElementById("giaoDienThemCauHoi").classList.add("hidden");
+          document.getElementById("giaoDienThi").classList.remove("hidden");
+        });
+
+      //Xử lý nút thêm
+      //Lấy giá trị từ "nutThem",xoá khoảng trắng ngăn chặn người dùng ko ghi câu hỏi
+      document.getElementById("nutThem").addEventListener("click", function () {
+        const question = document.getElementById("cauHoiMoi").value.trim();
+        const a = document.getElementById("optA").value.trim();
+        const b = document.getElementById("optB").value.trim();
+        const c = document.getElementById("optC").value.trim();
+        const d = document.getElementById("optD").value.trim();
+        const ans = document.getElementById("cauDung").value;
+        //Thông báo nếu ko nhập đầu đủ
+        if (!question || !a || !b || !c || !d || !ans) {
+          document.getElementById("thongBao").textContent =
+            "❌ Vui lòng nhập đầy đủ!";
+          return;
+        }
+
+        const cauChuoi = `${question}|${a}|${b}|${c}|${d}|${ans}`; //lưu dưới định dạng
+        let cauHoiCuDaThem = localStorage.getItem("cauHoiThem_SinhDe3") || ""; //lấy những câu hỏi cũ đã thêm trước đó của người dùng(nếu có), nếu ko có thì sẽ NULL
+        localStorage.setItem(
+          "cauHoiThem_SinhDe3",
+          cauHoiCuDaThem + cauChuoi + "#"
+        );
+        document.getElementById("thongBao").textContent =
+          "✅ Đã thêm. Tải lại để thấy câu mới.";
+
+        // XOÁ CÂU HỎI
+        //Duyệt qua từng mảng chứa các id mà người dùng đã nhập và gán giá trị rỗng cho từng id
+        ["cauHoiMoi", "optA", "optB", "optC", "optD"].forEach(function (id) {
+          document.getElementById(id).value = "";
+        });
+        document.getElementById("cauDung").value = ""; //reset dropdown phần chọn đáp án
+      });
+
+      //Nút Xoá
+      document.getElementById("nutXoa").addEventListener("click", function () {
+        if (confirm("Bạn chắc chắn muốn xoá toàn bộ câu hỏi đã thêm?")) {
+          localStorage.removeItem("cauHoiThem_SinhDe3");
+          location.reload();
+        }
+      });
+    </script>
+  </body>
+</html>
