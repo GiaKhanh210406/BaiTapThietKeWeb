@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang chủ Trắc Nghiệm</title>
+    <link rel="stylesheet" href="trangchu.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Trắc Nghiệm Online</div>
+      <nav class="mon-hoc">
+        <a href="Toan.html">Toán Học</a>
+        <a href="Ly.html">Vật Lý</a>
+        <a href="Hoa.html">Hóa Học</a>
+        <a href="Sinh.html">Sinh Học</a>
+        <a href="Anh.html">Tiếng Anh</a>
+        <a href="dangnhap.html">Đăng xuất</a>
+      </nav>
+    </header>
+
+    <!-- Tiêu đề -->
+    <h3 class="title">ÔN TẬP TRẮC NGHIỆM</h3>
+    <p class="subtitle">Chào mừng bạn đến với trang Trắc Nghiệm Online</p>
+
+    <!-- Thanh tìm kiếm -->
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Tìm kiếm môn học..."
+      />
+    </div>
+
+    <!-- Danh sách môn học -->
+    <section class="section">
+      <div class="subject-box">
+        <h4>Toán Học</h4>
+        <div
+          class="subject-image"
+          style="background-image: url('MonToan.jpg')"
+        ></div>
+        <div class="subject-info">
+          <span>3 đề thi</span>
+          <a href="Toan.html">Xem các đề →</a>
+        </div>
+      </div>
+
+      <div class="subject-box">
+        <h4>Vật Lý</h4>
+        <div
+          class="subject-image"
+          style="background-image: url('VatLy.jpg')"
+        ></div>
+        <div class="subject-info">
+          <span>3 đề thi</span>
+          <a href="Ly.html">Xem các đề →</a>
+        </div>
+      </div>
+
+      <div class="subject-box">
+        <h4>Hóa Học</h4>
+        <div
+          class="subject-image"
+          style="background-image: url('HoaHoc.jpg')"
+        ></div>
+        <div class="subject-info">
+          <span>3 đề thi</span>
+          <a href="Hoa.html">Xem các đề →</a>
+        </div>
+      </div>
+
+      <div class="subject-box">
+        <h4>Sinh Học</h4>
+        <div
+          class="subject-image"
+          style="background-image: url('MonSinh.jpg')"
+        ></div>
+        <div class="subject-info">
+          <span>3 đề thi</span>
+          <a href="Sinh.html">Xem các đề →</a>
+        </div>
+      </div>
+
+      <div class="subject-box">
+        <h4>Tiếng Anh</h4>
+        <div
+          class="subject-image"
+          style="background-image: url('TiengAnh.jpg')"
+        ></div>
+        <div class="subject-info">
+          <span>3 đề thi</span>
+          <a href="Anh.html">Xem các đề →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lịch học & Nhắc nhở -->
+    <section class="reminder-section">
+      <h3>📅 Lên lịch học & Nhắc nhở</h3>
+      <input type="datetime-local" id="studyTime" />
+      <button onclick="setReminder()">Lưu lịch</button>
+    </section>
+
+    <!-- Pop-up nhắc nhở -->
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <h3>⏰ Đến giờ học rồi!</h3>
+        <p>Hãy bắt đầu làm đề ngay nhé!</p>
+        <button onclick="closePopup()">OK</button>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="trangchu.js"></script>
+  </body>
+</html>

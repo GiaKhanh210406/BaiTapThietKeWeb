@@ -1,0 +1,400 @@
+/* PHẦN TRANG CHỦ */
+h1 {
+  text-align: center;
+  color: #33ccff;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+  color: #2980b9;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.btn {
+  margin-top: 15px;
+  display: inline-block;
+  padding: 10px 20px;
+  background: #33ccff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #99ccff;
+}
+
+/* PHẦN CSS THÊM CÂU HỎI */
+/* Khung chứa nội dung */
+.hidden {
+  display: none;
+}
+.khungChinh {
+  max-width: 800px;
+  margin: 0 auto; /* canh giữa */
+  border-radius: 20px; /* bo góc */
+  overflow: hidden; /* ẩn những phần thừa*/
+}
+
+/* nút thêm câu hỏi */
+#themCauHoi {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: block; /* nút thêm câu hỏi ra giữa, chiếm hết dòng */
+  margin: 40px 10px 40px 20px; /* cách trên phải 40px,10px và dưới trái 40px 20px */
+  padding: 15px 40px; /* khoảng cách giữa nội dung với viền */
+  background: linear-gradient(135deg, #60a5fa, #3b82f6); /* chuyển màu nền */
+  color: white;
+  border: white; /* ko viền */
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease; /* chuyển động mượt */
+  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3); /* đổ bóng xanh dương */
+  position: relative; /* định vị vị trí tương đối so với vị trí ban đầu */
+  overflow: hidden;
+}
+
+#themCauHoi:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(96, 165, 250, 0.4);
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8); /* chuyển màu nền */
+}
+
+#themCauHoi:active {
+  transform: translateY(-1px);
+}
+
+/* PHẦN GIAO DIỆN THÊM CÂU HỎI */
+#giaoDienThemCauHoi {
+  padding: 40px;
+  background: linear-gradient(135deg, #f0f9ff, #dbeafe);
+}
+
+#giaoDienThemCauHoi h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  color: #1e40af;
+  font-size: 2rem;
+  margin-bottom: 30px; /* khoảng cách dưới */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#cauHoiMoi,
+#optA,
+#optB,
+#optC,
+#optD {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 80%; /* kéo dài khung */
+  padding: 15px 20px;
+  margin: 10px 0;
+  border: 2px solid #dbeafe; /* viền xanh dương nhạt*/
+  border-radius: 12px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#cauHoiMoi:focus,
+#optA:focus,
+#optB:focus,
+#optC:focus,
+#optD:focus {
+  outline: none; /* Bỏ viền mặc định */
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); /* viền sáng xanh dương */
+  transform: translateY(-2px);
+}
+
+#optA:focus {
+  border-color: #ef4444; /* Đỏ hồng */
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+#optB:focus {
+  border-color: #3b82f6; /* Xanh dương */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+#optC:focus {
+  border-color: #f59e0b; /* Vàng cam */
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+#optD:focus {
+  border-color: #069979; /* Xanh dương nhạt */
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+.nhanInput {
+  display: block;
+  margin: 20px 5px;
+  font-weight: 600;
+  color: #1e40af;
+  font-size: 1.1rem;
+}
+#cauDung {
+  color: #614dfa;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  width: 100%;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border: 2px solid #dbeafe; /*viền xanh dương nhạt */
+  border-radius: 12px;
+  font-size: 1.1rem;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#cauDung:focus {
+  outline: none;
+  border-color: #429905;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.khungNutBam {
+  display: flex;
+  gap: 15px; /* khoảng cách giữa các phần tử bên trong flexbox*/
+  justify-content: center; /* căn giữa các phần tử bên trong flexbox */
+  flex-wrap: wrap; /* cho các phần tử xuống dòng nếu ko đủ chỗ */
+  margin-top: 30px;
+}
+
+#nutThem,
+#nutQuayLai,
+#nutXoa {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 100px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px; /* chiều rộng tối thiểu ko dc nhỏ hơn 140px dù nội dung ra sao */
+  position: relative;
+  overflow: hidden;
+}
+
+#nutThem {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  color: white;
+  box-shadow: 0 6px 20px rgba(96, 165, 250, 0.3);
+}
+
+#nutThem:hover {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4); /* Tăng đổ bóng */
+}
+
+#nutQuayLai {
+  background: linear-gradient(135deg, #94a3b8, #64748b);
+  color: white;
+  box-shadow: 0 6px 20px rgba(148, 163, 184, 0.3); /* Đổ bóng xám */
+}
+
+#nutQuayLai:hover {
+  background: linear-gradient(135deg, #64748b, #475569);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(148, 163, 184, 0.4); /* Đổ bóng xám */
+}
+
+#nutXoa {
+  background: linear-gradient(135deg, #f87171, #ef4444); /* Màu đỏ */
+  color: white;
+  box-shadow: 0 8px 25px rgba(248, 113, 113, 0.4);
+}
+
+#nutXoa:hover {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(248, 113, 113, 0.4); /* Tăng đổ bóng */
+}
+
+/* Khi thông báo có nội dung thành công */
+#thongBao {
+  font-size: 1.3rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+hr {
+  border: none; /* Bỏ viền mặc định */
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #bfdbfe,
+    transparent
+  ); /* Đường kẻ đầu cuối trong suốt */
+  margin: 30px;
+}
+
+.khungDapAn {
+  display: grid; /* sắp xếp các phần tử theo dạng lưới (cột và hàng) */
+  grid-template-columns: 1fr 1fr; /* 2 cột bằng nhau */
+  gap: 15px;
+  margin: 20px;
+}
+
+/* PHẦN GIAO DIỆN DÀNH CHO ĐIÊN THOẠI */
+@media (max-width: 768px) /* áp dụng style khi màn hình có chiều rộng tối đa 768px (cho dt) */ {
+  .khungDapAn {
+    grid-template-columns: 1fr;
+  }
+
+  .khungNutBam {
+    flex-direction: column; /* Xếp dọc */
+    align-items: center;
+  }
+
+  /* Chiều rộng các nút 100%% nhưng tối đa 300px */
+  #nutThem,
+  #nutQuayLai,
+  #nutXoa {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .tieuDeChinh {
+    font-size: 2rem; /* Giảm kích thước chữ */
+    padding: 20px 15px; /* Giảm padding */
+  }
+
+  /* Giảm padding cho form trên dt */
+  #giaoDienThemCauHoi {
+    padding: 20px;
+  }
+}
+
+/* PHẦN CHUYỂN ĐÔNG */
+#giaoDienThemCauHoi:not(.hidden) {
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0; /* Bắt đầu thì trong suốt */
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1; /* Kết thúc thì hiện rõ */
+    transform: translateY(0);
+  }
+}
+
+/* PHẦN HIỂN THỊ ĐỀ THI */
+
+body {
+  background-image: url("../BaiTapLon/nen.jpg"); /*lấy hình nền từ file img và làm hình nền*/
+  background-size: cover; /* Ảnh phủ kín màn hình */
+  background-repeat: no-repeat; /* Không lặp lại */
+  background-position: center; /* Căn giữa */
+  background-attachment: fixed; /*giữ cố định khi cuộn*/
+}
+
+.menu {
+  display: flex; /*Dùng Flexbox để xếp các mục menu nằm ngang.*/
+  align-items: center; /*Căn giữa các mục menu theo chiều dọc.*/
+  gap: 20px; /*cách nhau giữa các menu chọn đề các môn*/
+}
+
+.dropdown {
+  position: relative; /*làm mốc để menu con đinh vị*/
+  width: 140px; /*Chiều rộng cố định cho hộp menu.*/
+  font-family: sans-serif; /*kiểu chữ*/
+}
+
+.dropdown-title {
+  background-color: white; /*nên trắng cho menu chính*/
+  padding: 10px; /*Khoảng cách chữ so với viền 10px.*/
+  border: 1px solid; /*Viền 1px màu mặc định (đen).*/
+  cursor: pointer; /*Khi đưa chuột vào hiện hình bàn tay để biết có thể bấm.*/
+}
+
+.dropdown-menu {
+  list-style: none; /* Xóa dấu chấm mặc định của ul/li */
+  margin: 0; /*Giúp menu sát mép trên/dưới/trái/phải của phần tử chứa*/
+  padding: 0; /*Danh sách menu sẽ không bị thụt vào so với viền ngoài.*/
+  position: absolute; /*nghĩa là phần tử được định vị tuyệt đối dựa trên phần tử cha có position: relative; gần nhất.*/
+  top: 100%; /*Menu con sẽ xuất hiện ngay dưới nút menu chính*/
+  left: 0; /*Đưa cạnh trái của menu con trùng với cạnh trái của phần tử mốc */
+  right: 0; /*Đưa cạnh phải của menu con trùng với cạnh phải của phần tử mốc */
+  display: none; /* Mặc định ẩn */
+  background-color: white;
+  border: 1px solid;
+  z-index: 10; /* Đảm bảo menu con nổi lên trên nếu có phần tử khác phía dưới. */
+}
+.dropdown-menu li {
+  padding: 10px; /* Khoảng cách chữ với viền trong mỗi dòng menu.*/
+  border-top: 1px solid; /*Thêm đường kẻ ngăn cách các dòng.*/
+}
+
+/*
+.dropdown-menu li: chọn tất cả thẻ <li (mục menu) nằm trong phần tử có class là .dropdown-menu.
+
+:hover: là pseudo-class (giả lớp) của CSS, dùng để chọn phần tử khi chuột đang di chuyển vào (hover).*/
+.dropdown-menu li:hover {
+  background-color: #f0f0f0; /*Khi hover vào mỗi dòng menu thì nền sẽ chuyển màu xám nhạt.*/
+}
+
+/*
+hiện menu con
+Khi chuột hover vào .dropdown, menu con .dropdown-menu bên trong sẽ hiện ra (display: block)
+*/
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.subMit {
+  display: block;
+  margin: 0 auto;
+  /*căn giữa nút theo chiều ngang*/
+  font-family: "Times New Roman", Times, serif; /*phong chữ*/
+  padding: 12px 28px;
+  border-radius: 10px;
+  /* Tạo nút bo tròn đẹp hơn.*/
+  background-color: #eeeeee; /*màu nền của nút*/
+  position: fixed; /*nằm cố định*/
+  bottom: 20px;
+  left: 50%;
+  /*Đặt nút ở dưới cách đáy 20px, canh giữa màn hình theo chiều ngang.*/
+  transform: translateX(
+    -50%
+  ); /*Dịch trái một nửa chiều rộng của nút để nút nằm chính giữa.*/
+  z-index: 999; /*Đảm bảo nút luôn nổi trên các phần tử khác.*/
+  cursor: pointer; /*Hiện hình bàn tay khi di chuột vào.*/
+}
